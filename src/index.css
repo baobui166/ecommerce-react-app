@@ -18,3 +18,75 @@
     background-position: "100% 50%";
   }
 }
+
+html {
+  font-family: "Inria Sans", sans-serif;
+}
+
+a.active {
+  position: relative;
+}
+
+a.active::after {
+  content: "";
+  position: absolute;
+  display: none;
+  height: 3px;
+  width: 100%;
+  background: #4c2113;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 5px;
+  animation: showActive 0.5s ease;
+}
+
+a.active::after:hover {
+  display: block;
+}
+
+@keyframes showActive {
+  0% {
+    width: 0;
+  }
+
+  /* 25% {
+    width: 55%;
+  }
+
+  65% {
+    width: 35%;
+  } */
+
+  100% {
+    width: 100%;
+  }
+}
+
+.showSearch {
+  animation: showsearch 1s ease-in;
+}
+
+.closeSearch {
+  animation: closesearch 3s ease-in;
+}
+
+@keyframes showsearch {
+  0% {
+    height: 0%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes closesearch {
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}

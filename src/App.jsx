@@ -1,11 +1,16 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "./context/contextAuth";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./page/PageNotFound";
 import { Toaster } from "react-hot-toast";
 import AppLayoutUser from "./ui/AppLayoutUser";
+import Home from "./page/Home";
+import Product from "./page/Product";
+import Detail from "./page/Detail";
+import Liked from "./page/Liked";
+import Cart from "./page/Cart";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,9 +27,16 @@ function App() {
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayoutUser />}></Route>
-            <Route></Route>
-            <Route path="login" element={<LoginForm />} />
+            <Route element={<AppLayoutUser />}>
+              <Route index element={<Navigate replace to="/" />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Product />} />
+              <Route path="/prodcut/:id" element={<Detail />} />
+              <Route path="/liked" element={<Liked />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
+
+            <Route path="/login" element={<LoginForm />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>

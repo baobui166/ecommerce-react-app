@@ -4,13 +4,21 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => {
-    const token = JSON.parse(localStorage.getItem("tokenUser"));
+    const tokenString = localStorage.getItem("tokenUser");
 
-    if (!token) {
-      return console.error("Don't have token");
+    // Kiểm tra xem token có tồn tại hay không
+    if (!tokenString) {
+      console.error("Don't have token");
+      return null;
     }
 
-    return token;
+    try {
+      const token = JSON.parse(tokenString);
+      return token;
+    } catch (error) {
+      console.error("Invalid token format: ", error.message);
+      return null;
+    }
   });
 
   useEffect(() => {

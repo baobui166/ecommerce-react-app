@@ -11,6 +11,8 @@ import Product from "./page/Product";
 import Detail from "./page/Detail";
 import Liked from "./page/Liked";
 import Cart from "./page/Cart";
+import About from "./page/About";
+import Contact from "./page/Contact";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +35,8 @@ function App() {
               <Route path="/product/:id" element={<Detail />} />
               <Route path="/liked" element={<Liked />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Route>
 
             <Route path="/login" element={<LoginForm />} />

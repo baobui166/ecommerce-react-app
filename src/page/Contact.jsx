@@ -1,5 +1,7 @@
+import ContactContainer from "../features/contact/ContactContainer";
+
 function Contact() {
-  return <div>contact</div>;
+  return <ContactContainer />;
 }
 
 export default Contact;

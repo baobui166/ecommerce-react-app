@@ -46,22 +46,22 @@ function Footer() {
             <div>
               <h2 className="uppercase text-[24px] mb-[20px]">Hỗ trợ</h2>
               <ul className="text-[18px] text-gray-400 flex flex-col gap-3">
-                <li className="hover:text-black hover:scale-y-105 transition-all duration-300">
+                <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Tài khoản{" "}
                 </li>
-                <li className="hover:text-black hover:scale-y-105 transition-all duration-300">
+                <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Chính sách đổi trả
                 </li>
-                <li className="hover:text-black hover:scale-y-105 transition-all duration-300">
+                <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Chính Sách vận chuyển
                 </li>
-                <li className="hover:text-black hover:scale-y-105 transition-all duration-300">
+                <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Hướng dẫn mua hàng
                 </li>
-                <li className="hover:text-black hover:scale-y-105 transition-all duration-300">
+                <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Hướng dẫn bảo quản sản phẩm
                 </li>
-                <li className="hover:text-black hover:scale-y-105 transition-all duration-300">
+                <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Hướng dẫn quay video đóng gói mở hàng
                 </li>
               </ul>
@@ -77,9 +77,9 @@ function Footer() {
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-between ">
-            <div>
-              <h2 className="uppercase text-[24px]">Đăng kí nhận tin</h2>
+          <div className="flex flex-col mt-5">
+            <h2 className="uppercase text-[24px]">Đăng kí nhận tin</h2>
+            <div className=" flex items-center justify-between">
               <form className="border mt-4 flex p-[5px] pl-2">
                 <input
                   type="text"
@@ -93,12 +93,13 @@ function Footer() {
                   Đăng ký
                 </button>
               </form>
-            </div>
-            <div className="flex items-center gap-3">
-              <i className="fa-brands fa-instagram"></i>
-              <i className="fa-brands fa-facebook"></i>
-              <i className="fa-brands fa-tiktok"></i>
-              <i className="fa-brands fa-youtube"></i>
+
+              <div className="flex items-center gap-3">
+                <i className="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-tiktok"></i>
+                <i className="fa-brands fa-youtube"></i>
+              </div>
             </div>
           </div>
         </div>

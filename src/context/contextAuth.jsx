@@ -20,13 +20,14 @@ const AuthProvider = ({ children }) => {
       return null;
     }
   });
+  const denomination = "Đ";
 
   useEffect(() => {
     localStorage.setItem("tokenUser", JSON.stringify(token));
   }, [token]);
 
   return (
-    <AuthContext.Provider value={{ token, setToken }}>
+    <AuthContext.Provider value={{ token, setToken, denomination }}>
       {children}
     </AuthContext.Provider>
   );

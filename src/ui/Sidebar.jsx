@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
 const menu = [
-  { name: "About us", to: "/about-us" },
+  { name: "About us", to: "/about" },
   { name: "Trang chủ", to: "/" },
   { name: "Sale up to 80%", to: "/sale" },
-  { name: "Sản phẩm", to: "/prodcut" },
+  { name: "Sản phẩm", to: "/products" },
   { name: "Chăm sóc khách hàng", to: "/" },
   { name: "Tuyển dụng", to: "/" },
-  { name: "Liên hệ", to: "/" },
+  { name: "Liên hệ", to: "/contact" },
 ];
 function Sidebar() {
   return (

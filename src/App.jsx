@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "./context/contextAuth";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./page/PageNotFound";
 import { Toaster } from "react-hot-toast";
@@ -28,10 +28,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<AppLayoutUser />}>
-              <Route index element={<Navigate replace to="/" />} />
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Product />} />
-              <Route path="/prodcut/:id" element={<Detail />} />
+              <Route path="/product/:id" element={<Detail />} />
               <Route path="/liked" element={<Liked />} />
               <Route path="/cart" element={<Cart />} />
             </Route>

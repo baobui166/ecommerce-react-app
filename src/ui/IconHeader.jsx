@@ -5,7 +5,7 @@ function IconHeader() {
     <div className="flex items-center h-[150px] gap-5  ">
       <div className="relative">
         <i className="fa-solid fa-bell cursor-pointer"></i>
-        <span className="w-[20px] h-[20px] absolute bg-gray-500 rounded-full text-[10px] flex items-center justify-center top-[-4px] right-[-6px]">
+        <span className="w-[20px] h-[20px] absolute bg-gray-500 rounded-full text-[10px] flex items-center justify-center top-[-4px] right-[-6px] text-gray-300">
           2
         </span>
       </div>

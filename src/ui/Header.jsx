@@ -9,7 +9,7 @@ function Header({ handleShowSearch }) {
       <Topbar />
       <div className="flex items-center justify-between px-10 mx-auto">
         <div className="cursor-pointer " onClick={handleShowSearch}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass mr-[152px]"></i>
         </div>
         <div>
           <img

@@ -15,7 +15,7 @@ function AppLayoutUser() {
   };
 
   return (
-    <div>
+    <div className="pb-40">
       <Header
         handleShowSearch={handleShowSearch}
         showSearch={showSearch}

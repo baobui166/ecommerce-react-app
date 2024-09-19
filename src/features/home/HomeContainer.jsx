@@ -1,9 +1,13 @@
 import Banner from "./Banner";
+import Discount from "./Discount";
+import Mixer from "./Mixer";
 
 function HomeContainer() {
   return (
-    <div>
+    <div className="w-full">
       <Banner />
+      <Discount />
+      <Mixer />
     </div>
   );
 }

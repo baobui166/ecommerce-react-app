@@ -1,9 +1,11 @@
 function Footer() {
   return (
     <div className="w-full border-t mt-10  p-5">
-      <div className="w-[80%] flex mx-auto">
-        <div className="flex flex-col flex-2 gap-5 w-[30%]">
-          <h2 className="uppercase text-[24px]">về chúng tôi</h2>
+      <div className="w-[80%] flex items-center md:items-start justify-center md:justify-start flex-col md:flex-row mx-auto">
+        <div className="flex flex-col flex-2 gap-5 md:w-[30%]">
+          <h2 className="uppercase text-center md:text-start text-[24px]">
+            về chúng tôi
+          </h2>
           <h2 className="text-[26px] font-extrabold">Hardmode®</h2>
           <h3 className="text-[18px] text-gray-300 -mt-2">
             Everyday Urban Streetwear
@@ -12,10 +14,12 @@ function Footer() {
             © Bản quyền thuộc về Hardmode
           </h3>
         </div>
-        <div className="flex-3 flex flex-col gap-5 w-[70%]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="flex-3 mt-5 md:mt-0 flex flex-col gap-5 w-[70%]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <div>
-              <h2 className="uppercase text-[24px] mb-[20px]">Liên hệ</h2>
+              <h2 className="uppercase text-center md:text-start text-[24px] mb-[20px]">
+                Liên hệ
+              </h2>
               <ul className="flex flex-col gap3">
                 <li className="flex flex-col gap-[1px]">
                   <span className="text-[18px] text-gray-400">Điện thoại</span>
@@ -44,7 +48,9 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="uppercase text-[24px] mb-[20px]">Hỗ trợ</h2>
+              <h2 className="uppercase text-center md:text-start text-[24px] mb-[20px]">
+                Hỗ trợ
+              </h2>
               <ul className="text-[18px] text-gray-400 flex flex-col gap-3">
                 <li className="hover:text-black hover:scale-y-105 transition-all duration-300 cursor-pointer">
                   Tài khoản{" "}
@@ -67,7 +73,7 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="uppercase text-[24px] mb-[20px]">
+              <h2 className="uppercase text-center md:text-start text-[24px] mb-[20px]">
                 Hệ thống cửa hàng
               </h2>
               <p className="text-[18px] text-gray-400">
@@ -78,8 +84,10 @@ function Footer() {
             </div>
           </div>
           <div className="flex flex-col mt-5">
-            <h2 className="uppercase text-[24px]">Đăng kí nhận tin</h2>
-            <div className=" flex items-center justify-between">
+            <h2 className="uppercase text-center md:text-start text-[24px]">
+              Đăng kí nhận tin
+            </h2>
+            <div className=" flex flex-col gap-5 md:flex-row items-center justify-between">
               <form className="border mt-4 flex p-[5px] pl-2">
                 <input
                   type="text"

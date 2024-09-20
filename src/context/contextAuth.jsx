@@ -21,16 +21,30 @@ const AuthProvider = ({ children }) => {
     }
   });
   const denomination = "Đ";
+  const [sort, setSort] = useState("");
+  const [sortPrice, setSortPrice] = useState("");
+  const [category, setCategory] = useState("");
+  const [liked, setLiked] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("tokenUser", JSON.stringify(token));
   }, [token]);
 
-  return (
-    <AuthContext.Provider value={{ token, setToken, denomination }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  const value = {
+    token,
+    setToken,
+    denomination,
+    sort,
+    setSort,
+    sortPrice,
+    setSortPrice,
+    category,
+    setCategory,
+    liked,
+    setLiked,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 const useAuth = () => {

@@ -1,5 +1,7 @@
+import DetailContainer from "../features/detail/DetailContainer";
+
 function Detail() {
-  return <div>detail</div>;
+  return <DetailContainer />;
 }
 
 export default Detail;

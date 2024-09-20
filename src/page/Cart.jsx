@@ -1,5 +1,7 @@
+import CartContainer from "../features/cart/CartContainer";
+
 function Cart() {
-  return <div></div>;
+  return <CartContainer />;
 }
 
 export default Cart;

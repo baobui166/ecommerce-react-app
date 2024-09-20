@@ -1,25 +1,14 @@
 import { useEffect, useRef } from "react";
 import IconHeader from "./IconHeader";
 import { Link } from "react-router-dom";
+import { useClickOutSide } from "../utils/clickOutSide";
 
 function Search({ showSearch, setShowSearch }) {
-  const searchRef = useRef(null);
-  // Hàm để xử lý sự kiện click ngoài component
-  const handleClickOutside = (event) => {
-    if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setShowSearch(false); // Đóng component nếu click ngoài component
-    }
-  };
-  // Sử dụng useEffect để lắng nghe sự kiện click bên ngoài
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const searchRef = useClickOutSide();
 
   return (
     <div
+      ref={searchRef}
       className={`absolute mt-[-15px] showSearch top-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between ${
         showSearch ? "showSearch" : "closeSearch"
       }`}
@@ -32,10 +21,7 @@ function Search({ showSearch, setShowSearch }) {
             alt="logo"
           />
         </Link>
-        <div
-          ref={searchRef}
-          className="w-[400px] flex items-center gap-2 border rounded-full px-4"
-        >
+        <div className="w-[400px] flex items-center gap-2 border rounded-full px-4">
           <div className="flex-1">
             <input type="text" className="border-none outline-none w-full" />
           </div>

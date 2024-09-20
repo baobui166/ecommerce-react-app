@@ -11,12 +11,12 @@ const menu = [
 ];
 function Sidebar() {
   return (
-    <div className="flex items-center justify-between w-full text-black font-thin text-xs px-20">
+    <div className="flex items-center gap-2 text-[16px] sm:grid sm:grid-cols-3 sm:gap-1 md:grid-cols-4 lg:flex md:gap-2 md:place-items-center justify-between w-full text-black font-thin sm:text-xs md:px-20 px-2">
       {menu.map((item, index) => {
         return (
           <Link
             to={item.to}
-            className={`relative group ${
+            className={`relative group text-center ${
               item.name === "Sale up to 80%"
                 ? "text-red-400 hover:text-red-600"
                 : ""

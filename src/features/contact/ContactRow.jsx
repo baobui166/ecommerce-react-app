@@ -1,6 +1,6 @@
 function ContactRow({ method, contacAddress, phone, send }) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center text-[12px] sm:text-[16px]  sm:justify-between gap-2 sm:gap-0">
       <div className="flex gap-4 items-center">
         <h2 className="text-gray-800 text-[20px] ">{method} :</h2>
         <h2 className="text-black text-[20px]">{contacAddress}</h2>

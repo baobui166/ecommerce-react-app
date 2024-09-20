@@ -33,8 +33,8 @@ function ContactForm() {
   };
 
   return (
-    <div>
-      <div className="text-xl text-gray-400 font-thin">
+    <div className="text-[12px] sm:text-[26px]">
+      <div className="text-[16px] md:text-xl text-gray-400 font-thin">
         <h2>Gửi tin nhắn cho Hardmode</h2>
         <h2>khi bạn cần hỗ trợ hoặc có thắc mắc nhé:</h2>
       </div>

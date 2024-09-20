@@ -21,9 +21,9 @@ function AppLayoutUser() {
         showSearch={showSearch}
         setShowSearch={setShowSearch}
       />
-      {/* {showSearch && (
+      {showSearch && (
         <Search showSearch={showSearch} setShowSearch={setShowSearch} />
-      )} */}
+      )}
       <div>
         <Outlet />
       </div>

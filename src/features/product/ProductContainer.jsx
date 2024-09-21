@@ -21,6 +21,7 @@ function ProductContainer() {
                 image={item.image}
                 id={item.id}
                 border
+                liked={item.liked}
               />
             ))}
           </div>

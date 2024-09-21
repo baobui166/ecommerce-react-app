@@ -12,7 +12,7 @@ function RecommendProduct() {
   const [queryCategory, setQueryCategory] = useState("shirt");
 
   return (
-    <div>
+    <div className="my-10 flex flex-col">
       <div className="flex flex-col md:flex-row items-center gap-5 text-sm">
         <span className="text-black">Bạn có cần thêm</span>
         <div className="flex gap-5 ml-2 md:ml-0">
@@ -22,7 +22,7 @@ function RecommendProduct() {
               onClick={() => setQueryCategory(item.value)}
               className={`${
                 queryCategory === item.value ? "text-gray-800" : "text-gray-400"
-              }`}
+              } cursor-pointer font-bold`}
             >
               {item.name}
             </span>
@@ -78,7 +78,7 @@ function RecommendProduct() {
       )}
 
       {queryCategory === "balo" && (
-        <div className="my-10">
+        <div className="my-10 mx-0">
           {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
               {balo.length > 0 ? (

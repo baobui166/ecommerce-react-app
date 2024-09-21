@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../context/contextAuth";
 
-function CardProduct({ name, image, price, border = false, id }) {
+function CardProduct({
+  name,
+  image,
+  price,
+  border = false,
+  id,
+  liked = false,
+}) {
   const { denomination } = useAuth();
 
   return (
@@ -15,10 +22,14 @@ function CardProduct({ name, image, price, border = false, id }) {
         <span className="block px-2 py-1 bg-black text-white font-bold text-[16px] absolute top-1 left-1">
           {"New"}
         </span>
-        <button className="text-sm absolute top-1 right-1">
-          <i className="fa-regular fa-heart"></i>
+        <button className="text-sm absolute top-1 right-1 ">
+          {liked ? (
+            <img src="../../assets/heart.svg" alt="heart" />
+          ) : (
+            <i className="fa-regular fa-heart"></i>
+          )}
         </button>
-        <button className="absolute bottom-1 right-1">
+        <button className="absolute bottom-1 right-1 ">
           <i className="fa-solid fa-cart-shopping"></i>
         </button>
       </div>

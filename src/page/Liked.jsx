@@ -1,5 +1,7 @@
+import LikedContainer from "../features/liked/LikedContainer";
+
 function Liked() {
-  return <div>liked</div>;
+  return <LikedContainer />;
 }
 
 export default Liked;

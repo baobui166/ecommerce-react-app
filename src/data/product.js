@@ -1,6 +1,7 @@
 export const products = [
   {
     id: 1,
+    liked: true,
     image:
       "https://product.hstatic.net/200000260587/product/un-nu-form-rong-tay-lo-ao-phong-rong-ao-phong-nam-nu-unisex-hat01__16__292adcfd8cf84bb884def5101840aebc_grande.jpg",
     name: "Áo thun Hardmode / Đen",

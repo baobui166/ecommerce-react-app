@@ -90,3 +90,9 @@ a.active::after:hover {
     height: 0%;
   }
 }
+
+input[type="radio"] {
+  accent-color: black; /* Đổi màu cho radio */
+  width: 20px;
+  height: 20px;
+}

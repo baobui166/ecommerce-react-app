@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { products } from "../../data/product";
 import CardProduct from "../product/CardProduct";
 import Button from "../../ui/Button";
 
-function ShowProduct() {
+function ShowProduct({ data, loading }) {
   const [filter, setFilter] = useState("outstanding");
+
+  if (loading)
+    return (
+      <div className="flex w-[70vh] h-[70vh] items-center justify-center text-4xl mx-auto">
+        <i className="fa-solid fa-spinner loading"></i>
+      </div>
+    );
 
   return (
     <div className="w-[100%] ">
@@ -33,12 +39,12 @@ function ShowProduct() {
         </div>
         {filter === "outstanding" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
-            {products.map((item, index) => (
+            {data.map((item, index) => (
               <CardProduct
                 key={index}
                 price={item.price}
-                name={item.name}
-                image={item.image}
+                title={item.name}
+                images={item.images}
                 id={item.id}
               />
             ))}

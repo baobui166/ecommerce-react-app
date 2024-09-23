@@ -20,12 +20,12 @@ const AuthProvider = ({ children }) => {
       return null;
     }
   });
-  const denomination = "Đ";
+  const denomination = "$";
   const [sort, setSort] = useState("");
   const [sortPrice, setSortPrice] = useState("");
   const [category, setCategory] = useState("");
   const [liked, setLiked] = useState([]);
-
+  const [user, setUser] = useState();
   useEffect(() => {
     localStorage.setItem("tokenUser", JSON.stringify(token));
   }, [token]);
@@ -42,6 +42,8 @@ const AuthProvider = ({ children }) => {
     setCategory,
     liked,
     setLiked,
+    user,
+    setUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

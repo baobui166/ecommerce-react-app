@@ -12,14 +12,16 @@ export const useLogin = () => {
     isLoading: isLoadingLogin,
     error,
   } = useMutation({
-    mutationFn: ({ email, password }) => loginApi({ email, password }),
-    onSuccess: (user) => {
-      queryClient.setQueryData(["user"], user.user);
+    mutationFn: loginApi,
+    onSuccess: (data) => {
+      queryClient.setQueryData(["accesstoken"], data.token);
+      localStorage.setItem("accessToken", data.accessToken);
       toast.success("Login success");
       navigate("/", { replace: true });
     },
     onError: () => {
-      console.error("error in login");
+      console.error("Error in login:", error);
+      toast.error("Login failed: " + error.message);
     },
   });
 

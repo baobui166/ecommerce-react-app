@@ -1,6 +1,5 @@
-import { useState } from "react";
-import Button from "../../ui/Button";
 import { Link } from "react-router-dom";
+import Button from "../../ui/Button";
 
 const anotherLogin = [
   {
@@ -19,147 +18,62 @@ const anotherLogin = [
   },
 ];
 
-function LoginForm() {
-  const [login, setLogin] = useState("login");
-  const [register, setRegister] = useState("numberphone");
+function LoginForm({
+  handleSubmit,
+  userName,
+  password,
+  setUserName,
+  setPassword,
+  isLoadingLogin,
+}) {
   return (
-    <div className="w-[30%] mx-auto my-20 p-2 shadow-xl rounded-md">
-      <div className="flex items-center justify-center gap-20 uppercase font-bold text-gray-400">
-        <span
-          className={`${
-            login === "login" ? "text-black border-b border-b-black" : ""
-          } cursor-pointer`}
-          onClick={() => setLogin("login")}
-        >
-          đăng nhập
-        </span>
-        <span
-          className={`${
-            login === "register" ? "text-black border-b border-b-black" : ""
-          } cursor-pointer`}
-          onClick={() => setLogin("register")}
-        >
-          đăng kí
-        </span>
+    <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
+      <div className="py-1 border-b-[1px] border-b-gray-400 ">
+        <input
+          type="text"
+          placeholder="Nhập số điện thoại hoặc email"
+          className="border-none outline-none w-full"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
-      {login === "login" && (
-        <div>
-          <form action="" className="mt-5 flex flex-col gap-3">
-            <div className="py-1 border-b-[1px] border-b-gray-400 ">
-              <input
-                type="text"
-                placeholder="Nhập số điện thoại hoặc email"
-                className="border-none outline-none w-full"
-              />
-            </div>
-            <div className="py-1 border-b-[1px] border-b-gray-400 ">
-              <input
-                type="text"
-                placeholder="Mật khẩu"
-                className="border-none outline-none w-full"
-              />
-            </div>
-            <span className="text-gray-300 block text-center text-xs mx-auto">
-              ---Hoặc---
-            </span>
-            <div className="flex flex-col items-center justify-center md:flex-row gap-3">
-              {anotherLogin.map((item, index) => (
-                <button
-                  key={index}
-                  className={`px-2 py-1 text-white font-bold flex items-center gap-2 rounded-md bg-[${item.backgroudColor}]`}
-                  style={{ backgroundColor: item.backgroudColor }}
-                >
-                  <img src={item.image} className="w-[40px] h-[40px]" alt="" />
-                  <span className="text-sm">{item.title}</span>
-                </button>
-              ))}
-            </div>
-            <Button text={"Đăng nhập"} border />
-            <Link
-              to={"/forgotpassword"}
-              className="text-xs text-gray-400 block text-center "
-            >
-              Quên mật khẩu
-            </Link>
-          </form>
-        </div>
-      )}
-      {login === "register" && (
-        <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-5 justify-center text-black text-[24px] mt-3">
-            <div className="flex items-center gap-2">
-              <input
-                onChange={() => setRegister("numberphone")}
-                type="radio"
-                name="checkboxGroup"
-                className="form-radio text-black"
-                checked={register === "numberphone"}
-              />
-              <span>Số điện thoại</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                onChange={() => setRegister("email")}
-                type="radio"
-                name="checkboxGroup"
-              />
-              <span>Email</span>
-            </div>
-            <div></div>
-          </div>
-          {register === "numberphone" && (
-            <div className="flex flex-col gap-10">
-              <div className="py-1 border-b-[1px] border-b-gray-400 ">
-                <input
-                  type="text"
-                  placeholder="Nhập số điện thoại"
-                  className="border-none outline-none w-full"
-                  checked={register === "numberphone"}
-                />
-              </div>
-              <Button text={"Gửi mã xác nhận"} border />
-            </div>
-          )}
-          {register === "email" && (
-            <div className="flex flex-col gap-10">
-              <div className="py-1 border-b-[1px] border-b-gray-400 ">
-                <input
-                  type="text"
-                  placeholder="Họ"
-                  className="border-none outline-none w-full"
-                />
-              </div>
-              <div className="py-1 border-b-[1px] border-b-gray-400 ">
-                <input
-                  type="text"
-                  placeholder="Tên"
-                  className="border-none outline-none w-full"
-                />
-              </div>
-              <div className="py-1 border-b-[1px] border-b-gray-400 ">
-                <input
-                  type="text"
-                  placeholder="Email"
-                  className="border-none outline-none w-full"
-                />
-              </div>
-              <div className="py-1 border-b-[1px] border-b-gray-400 ">
-                <input
-                  type="text"
-                  placeholder="Mật khẩu"
-                  className="border-none outline-none w-full"
-                />
-              </div>
-              <Button text={"Đăng kí"} border />
-              <Link to="/" className="flex items-center text-gray-400 gap-5">
-                <i className="fa-solid fa-backward"></i>
-                <span>Quay lại trang chủ</span>
-              </Link>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+      <div className="py-1 border-b-[1px] border-b-gray-400 ">
+        <input
+          type="text"
+          placeholder="Mật khẩu"
+          className="border-none outline-none w-full"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <span className="text-gray-300 block text-center text-xs mx-auto">
+        ---Hoặc---
+      </span>
+      <div className="flex flex-col items-center justify-center md:flex-row gap-3">
+        {anotherLogin.map((item, index) => (
+          <button
+            key={index}
+            className={`px-2 py-1 text-white font-bold flex items-center gap-2 rounded-md bg-[${item.backgroudColor}]`}
+            style={{ backgroundColor: item.backgroudColor }}
+          >
+            <img src={item.image} className="w-[40px] h-[40px]" alt="" />
+            <span className="text-sm">{item.title}</span>
+          </button>
+        ))}
+      </div>
+      <Button
+        text={"Đăng nhập"}
+        type="submit"
+        border
+        disabled={isLoadingLogin}
+      />
+      <Link
+        to={"/forgotpassword"}
+        className="text-xs text-gray-400 block text-center "
+      >
+        Quên mật khẩu
+      </Link>
+    </form>
   );
 }
 

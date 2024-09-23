@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import useAuth from "../../context/contextAuth";
 
 function CardProduct({
-  name,
-  image,
+  title,
+  images,
   price,
   border = false,
   id,
@@ -18,7 +18,11 @@ function CardProduct({
     >
       <div className="flex items-center justify-between "></div>
       <div className="relative">
-        <img src={image} alt="Product" />
+        <img
+          src={images[0]}
+          alt="Product"
+          className="max-w-[340px] max-h-[340px] object-cover"
+        />
         <span className="block px-2 py-1 bg-black text-white font-bold text-[16px] absolute top-1 left-1">
           {"New"}
         </span>
@@ -35,7 +39,7 @@ function CardProduct({
       </div>
 
       <div className="text-gray-400  text-sm">
-        <span>{name}</span>
+        <span>{title}</span>
       </div>
       <div className="mt-2">
         <span>

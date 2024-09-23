@@ -2,7 +2,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "./context/contextAuth";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LoginForm from "./features/authentication/LoginForm";
 import PageNotFound from "./page/PageNotFound";
 import { Toaster } from "react-hot-toast";
 import AppLayoutUser from "./ui/AppLayoutUser";
@@ -13,6 +12,7 @@ import Liked from "./page/Liked";
 import Cart from "./page/Cart";
 import About from "./page/About";
 import Contact from "./page/Contact";
+import Login from "./page/Login";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,7 +37,8 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<LoginForm />} />
+              <Route path="/sale" element={<Product />} />
+              <Route path="/login" element={<Login />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>

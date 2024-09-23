@@ -9,17 +9,19 @@ function Button({
   type,
   link,
   func,
+  disabled,
 }) {
-  const Type = link ? Link : "buton";
+  const Type = link ? Link : "button";
 
   return (
     <Type
       onClick={func}
+      disabled={disabled}
       to={link ? link : ""}
       type={type}
       className={`${hover} ${
         size === "lg" ? "md:px-12 py-1 px-2" : "px-4 py-2"
-      } relative overflow-hidden text-black flex items-center justify-center gap-3 hover:text-white bg-white group text-xs ${
+      } relative overflow-hidden cursor-pointer text-black flex items-center justify-center gap-3 hover:text-white bg-white group text-xs ${
         border ? "border" : ""
       }`}
     >

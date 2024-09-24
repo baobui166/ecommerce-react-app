@@ -1,14 +1,12 @@
 export const sort = [
   { name: "Giá tăng dần", value: "ascending" },
   { name: "Giá giảm dần", value: "decreasing" },
-  { name: "Tên A-Z", value: "a-z" },
-  { name: "Tên Z-A", value: "z-a" },
 ];
 
 export const sortPrice = [
-  { name: "Dưới 500.000", value: "500" },
-  { name: "Dưới 1.000.000", value: "1000000" },
-  { name: "Dưới 2.000.000", value: "2000000" },
+  { name: "Dưới $100", value: "100" },
+  { name: "Dưới $1.000.000", value: "1000000" },
+  { name: "Dưới $2.000.000", value: "2000000" },
 ];
 
 export const sortCategory = [

@@ -26,6 +26,7 @@ const AuthProvider = ({ children }) => {
   const [category, setCategory] = useState("");
   const [liked, setLiked] = useState([]);
   const [user, setUser] = useState();
+  const [limit, setLimit] = useState(8);
   useEffect(() => {
     localStorage.setItem("tokenUser", JSON.stringify(token));
   }, [token]);
@@ -44,6 +45,8 @@ const AuthProvider = ({ children }) => {
     setLiked,
     user,
     setUser,
+    limit,
+    setLimit,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

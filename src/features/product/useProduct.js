@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getAllProducts } from "../../service/apiProduct";
 
 export const useProduct = () => {
@@ -6,7 +6,7 @@ export const useProduct = () => {
     data: products,
     isLoading: isLoadingProduct,
     error,
-  } = useMutation({
+  } = useQuery({
     queryKey: ["products"], // Tên query key
     queryFn: getAllProducts,
   });

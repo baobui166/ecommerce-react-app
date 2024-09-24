@@ -39,7 +39,7 @@ function ShowProduct({ data, loading }) {
         </div>
         {filter === "outstanding" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
-            {data.map((item, index) => (
+            {data.slice(0, 8).map((item, index) => (
               <CardProduct
                 key={index}
                 price={item.price}
@@ -60,7 +60,7 @@ function ShowProduct({ data, loading }) {
           </div>
         )}
       </div>
-      <div className="w-full flex items-center justify-center">
+      <div className="w-[20%] mx-auto flex items-center justify-center">
         <Button text={"Xem thêm"} border dropdown link={"/products"}></Button>
       </div>
     </div>

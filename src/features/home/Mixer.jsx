@@ -34,7 +34,9 @@ function Mixer() {
           <MixerCard key={index} image={item.image} title={item.title} />
         ))}
       </div>
-      <Button text={"Xem thêm"} dropdown size="medium" border />
+      <div className="w-[15%] mx-auto">
+        <Button text={"Xem thêm"} dropdown size="medium" border />
+      </div>
     </div>
   );
 }

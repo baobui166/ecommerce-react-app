@@ -9,7 +9,7 @@ function ImageProduct({ images }) {
         {images.map((item, index) => (
           <div
             key={index}
-            className={`w-[90px] h-[115px] p-[5px] ${
+            className={`w-[90px] h-[115px] p-[5px] overflow-hidden ${
               index === imgCurrent ? "border border-solid border-black" : ""
             } `}
           >

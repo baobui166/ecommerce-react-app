@@ -54,7 +54,7 @@ function InformationProduct({ name, price, imagesInformation, sold }) {
           <DropDown title={"Kích thước"} data={size} />
           <DropDown title={"Số lượng"} data={quantity} />
         </div>
-        <div>
+        <div className="w-full">
           <Button text={"Thêm vào giỏ hàng"} border />
         </div>
         <div className="flex flex-col items-center justify-center">

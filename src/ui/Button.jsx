@@ -21,7 +21,7 @@ function Button({
       type={type}
       className={`${hover} ${
         size === "lg" ? "md:px-12 py-1 px-2" : "px-4 py-2"
-      } relative overflow-hidden cursor-pointer text-black flex items-center justify-center gap-3 hover:text-white bg-white group text-xs ${
+      } relative overflow-hidden w-full cursor-pointer text-black flex items-center justify-center gap-3 hover:text-white bg-white group text-xs ${
         border ? "border" : ""
       }`}
     >

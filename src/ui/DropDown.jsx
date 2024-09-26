@@ -6,8 +6,8 @@ function DropDown({ title, data, func = () => {} }) {
     >
       <option value="">{title}</option>
       {data.map((item, index) => (
-        <option key={index} value={item.value || item}>
-          {item.name || item}
+        <option key={index} value={item.value}>
+          {item.name}
         </option>
       ))}
     </select>

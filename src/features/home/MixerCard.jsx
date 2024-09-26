@@ -1,5 +1,4 @@
 function MixerCard({ image, title }) {
-  console.log(image);
   return (
     <div className=" relative group overflow-hidden">
       <img src={image} alt="Mixer" className="object-cover" />

@@ -7,7 +7,6 @@ import { product } from "../../data/product";
 
 function HomeContainer() {
   const { products, isLoadingProduct, error } = useProduct();
-  console.log(products);
   if (error) return <div>Error: {error}</div>;
 
   return (

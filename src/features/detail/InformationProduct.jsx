@@ -1,15 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../context/contextAuth";
-import { quantity, size } from "../../data/selectOption";
+import { quantity as quantityData } from "../../data/selectOption";
 import Button from "../../ui/Button";
 import DropDown from "../../ui/DropDown";
+import { useAddToCart } from "./useAddToCart";
+import { useParams } from "react-router-dom";
 
 function InformationProduct({ name, price, imagesInformation, sold }) {
-  const { denomination } = useAuth();
+  const {
+    denomination,
+    quantity,
+    setQuantity,
+    user,
+    productsCart,
+    setProductsCart,
+  } = useAuth();
   const [show, setShow] = useState(false);
+  const { id } = useParams();
+  const { mutate: addToCartFunc, isLoading: isLoadingAddToCart } =
+    useAddToCart();
 
   const handleShow = () => {
     setShow((pre) => !pre);
+  };
+
+  useEffect(() => {
+    console.log("so luong sản phẩm", quantity);
+  }, [quantity]);
+
+  const handleAddToCart = () => {
+    let updatedCart = [...productsCart];
+
+    let existingItem = updatedCart.find((item) => item.id === id);
+
+    if (existingItem) {
+      existingItem.quantity += Number(quantity);
+    } else {
+      updatedCart.push({ id: Number(id), quantity: Number(quantity) });
+    }
+
+    setProductsCart(updatedCart);
+
+    console.log("mang sau khi update: ", productsCart);
+    addToCartFunc({ userId: Number(user.id), products: updatedCart });
   };
 
   return (
@@ -51,11 +84,15 @@ function InformationProduct({ name, price, imagesInformation, sold }) {
           </a>
         </div>
         <div className="flex items-center gap-2">
-          <DropDown title={"Kích thước"} data={size} />
-          <DropDown title={"Số lượng"} data={quantity} />
+          <DropDown title={"Số lượng"} func={setQuantity} data={quantityData} />
         </div>
         <div className="w-full">
-          <Button text={"Thêm vào giỏ hàng"} border />
+          <Button
+            text={"Thêm vào giỏ hàng"}
+            border
+            func={handleAddToCart}
+            disabled={isLoadingAddToCart}
+          />
         </div>
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-center text-black text-xl border-b border-b-black">

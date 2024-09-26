@@ -23,14 +23,14 @@ export const size = [
 ];
 
 export const quantity = [
-  { name: "Size 1", value: "1" },
-  { name: "Size 2", value: "2" },
-  { name: "Size 3", value: "3" },
-  { name: "Size 4", value: "4" },
-  { name: "Size 5", value: "5" },
-  { name: "Size 6", value: "6" },
-  { name: "Size 7", value: "7" },
-  { name: "Size 8", value: "8" },
-  { name: "Size 9", value: "9" },
-  { name: "Size 10", value: "10" },
+  { name: "1", value: 1 },
+  { name: "2", value: 2 },
+  { name: "3", value: 3 },
+  { name: "4", value: 4 },
+  { name: "5", value: 5 },
+  { name: "6", value: 6 },
+  { name: "7", value: 7 },
+  { name: "8", value: 8 },
+  { name: "9", value: 9 },
+  { name: "10", value: 10 },
 ];

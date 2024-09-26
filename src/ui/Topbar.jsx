@@ -5,7 +5,7 @@ function Topbar() {
     "HardMode - Everyday Urban Sweater",
   ];
   return (
-    <div className="h-[20px] bg-black flex items-center justify-center py-5">
+    <div className="h-[20px] bg-black flex items-center text-xs justify-center py-4">
       <span className="text-white">{topbar[0]}</span>
     </div>
   );

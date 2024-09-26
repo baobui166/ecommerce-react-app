@@ -21,7 +21,7 @@ function CardProduct({
         <img
           src={images[0]}
           alt="Product"
-          className="max-w-[340px] max-h-[340px] object-cover"
+          className="w-[340px] h-[340px] object-cover"
         />
         <span className="block px-2 py-1 bg-black text-white font-bold text-[16px] absolute top-1 left-1">
           {"New"}

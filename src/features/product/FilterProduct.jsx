@@ -7,8 +7,6 @@ function FilterProduct() {
   const { setSort, setSortPrice, setCategory } = useAuth();
   const { categories, isLoadingCategories, error } = useCategories();
 
-  console.log(categories);
-
   if (isLoadingCategories) {
     return (
       <div className="flex w-[70vh] h-[70vh] items-center justify-center text-4xl mx-auto">

@@ -1,18 +1,25 @@
-export const login = async (credentials) => {
-  const response = await fetch("https://dummyjson.com/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  });
-  const data = response.json();
+export const login = async (username, password) => {
+  const response = await fetch(
+    "https://cors-anywhere.herokuapp.com/https://dummyjson.com/auth/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+        expiresInMins: 30,
+      }),
+      credentials: "include",
+    }
+  );
 
   if (!response.ok) {
-    const errorData = await response.json();
-    console.error("Error response:", errorData);
-    throw new Error("Login failed: " + errorData.message);
+    throw new Error("Login failed!");
   }
+
+  const data = await response.json();
 
   return data;
 };

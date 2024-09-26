@@ -3,51 +3,24 @@ import RegisterWithPhoneNumber from "./RegisterWithPhoneNumber";
 import RegisterWithEmail from "./RegisterWithEmail";
 import LoginForm from "./LoginForm";
 import useAuth from "../../context/contextAuth";
-
-import { useNavigate } from "react-router-dom";
+import { useLogin } from "./useLogin";
 
 function LoginContainer() {
   const [login, setLogin] = useState("login");
   const [register, setRegister] = useState("numberphone");
-  const [userName, setUserName] = useState("jamesd");
-  const [password, setPassword] = useState("jamesdpass");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [userName, setUserName] = useState("emilys");
+  const [password, setPassword] = useState("emilyspass");
   const { setUser } = useAuth();
-  const navigate = useNavigate();
+
+  const { login: loginApi, isLoadingLogin, data } = useLogin();
 
   const handleSubmit = async (e) => {
+    if (!userName || !password) return;
+
     e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("https://dummyjson.com/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userName,
-          password,
-          expiresInMins: 30,
-        }),
-      });
-      if (!res.ok) throw new Error("Failed to fetch data");
-      const result = await res.json();
-      setUser(result);
-      navigate("/");
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
+    loginApi(userName.trim(), password.trim());
+    setUser(data);
   };
-
-  if (loading)
-    return (
-      <div className="flex w-[70vh] h-[70vh] items-center justify-center text-4xl mx-auto">
-        <i className="fa-solid fa-spinner loading"></i>
-      </div>
-    );
-
-  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="lg:w-[30%] px-2 mx-auto my-20 p-2 shadow-xl rounded-md">
@@ -77,7 +50,7 @@ function LoginContainer() {
             password={password}
             setUserName={setUserName}
             setPassword={setPassword}
-            isLoadingLogin={loading}
+            isLoadingLogin={isLoadingLogin}
           />
         </div>
       )}

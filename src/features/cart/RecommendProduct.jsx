@@ -39,7 +39,7 @@ function RecommendProduct() {
                     key={index}
                     price={item.price}
                     name={item.name}
-                    image={item.image}
+                    images={item.image}
                     id={item.id}
                   />
                 ))
@@ -63,7 +63,7 @@ function RecommendProduct() {
                     key={index}
                     price={item.price}
                     name={item.name}
-                    image={item.image}
+                    images={item.image}
                     id={item.id}
                   />
                 ))

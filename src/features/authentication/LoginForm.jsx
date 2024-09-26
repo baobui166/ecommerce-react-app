@@ -25,6 +25,7 @@ function LoginForm({
   setUserName,
   setPassword,
   isLoadingLogin,
+  error,
 }) {
   return (
     <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
@@ -61,12 +62,18 @@ function LoginForm({
           </button>
         ))}
       </div>
+
       <Button
         text={"Đăng nhập"}
         type="submit"
         border
         disabled={isLoadingLogin}
       />
+
+      {error && (
+        <span className="my-2 text-red-400 text-xl">{error.message}</span>
+      )}
+
       <Link
         to={"/forgotpassword"}
         className="text-xs text-gray-400 block text-center "

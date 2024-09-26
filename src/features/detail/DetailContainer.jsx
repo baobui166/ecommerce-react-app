@@ -6,7 +6,6 @@ import { useProductDetail } from "./useProductDetail";
 
 function DetailContainer() {
   const { product, isLoading, error } = useProductDetail();
-  console.log("product detail: ", product);
 
   if (isLoading) {
     return (

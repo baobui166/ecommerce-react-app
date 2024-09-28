@@ -36,23 +36,24 @@ const AuthProvider = ({ children }) => {
   const [sortPrice, setSortPrice] = useState("");
   const [category, setCategory] = useState("");
   const [liked, setLiked] = useState([]);
-  const [user, setUser] = useState({
-    id: 1,
-    username: "emilys",
-    email: "emily.johnson@x.dummyjson.com",
-    firstName: "Emily",
-    lastName: "Johnson",
-    gender: "female",
-    image: "https://dummyjson.com/icon/emilys/128",
-    accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", // JWT accessToken (for backward compatibility) in response and cookies
-    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", // refreshToken in response and cookies
+  const [user, setUser] = useState(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      return null;
+    }
+    try {
+      const data = JSON.parse(user);
+      return data;
+    } catch (error) {
+      console.error("Invalid user format: ", error.message);
+      return null;
+    }
   });
   const [limit, setLimit] = useState(8);
 
   useEffect(() => {
-    localStorage.setItem("tokenUser", JSON.stringify(token));
-    localStorage.setItem("productsCart", JSON.stringify(productsCart));
-  }, [token, productsCart]);
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
   const value = {
     token,

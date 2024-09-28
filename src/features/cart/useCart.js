@@ -6,8 +6,9 @@ export const useCart = () => {
   const { user } = useAuth();
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["carts"],
+    queryKey: ["cart", user.id],
     queryFn: () => getAllCartByUser(user.id),
+    enabled: !!user.id,
   });
 
   return { data, isLoading, error };

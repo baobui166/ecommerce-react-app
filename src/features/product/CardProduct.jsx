@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../context/contextAuth";
+import { useAddToCart } from "../detail/useAddToCart";
 
 function CardProduct({
   title,
@@ -9,11 +10,25 @@ function CardProduct({
   id,
   liked = false,
 }) {
-  const { denomination } = useAuth();
+  const { denomination, user } = useAuth();
+  const navigate = useNavigate();
+  const { mutate: addToCartFunc, isLoading: isLoadingAddToCart } =
+    useAddToCart();
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation(); // Ngăn việc sự kiện click lan ra ngoài
+    addToCartFunc(user.id, id, 1);
+  };
+
+  const handleCardClick = () => {
+    navigate(`/product/${id}`); // Điều hướng sang trang chi tiết sản phẩm
+  };
+
+  //to={`/product/${id}`}
 
   return (
-    <Link
-      to={`/product/${id}`}
+    <div
+      onClick={handleCardClick}
       className={`p-3 flex flex-col ${border ? "border border-black" : ""}`}
     >
       <div className="flex items-center justify-between "></div>
@@ -33,8 +48,15 @@ function CardProduct({
             <i className="fa-regular fa-heart"></i>
           )}
         </button>
-        <button className="absolute bottom-1 right-1 ">
-          <i className="fa-solid fa-cart-shopping"></i>
+        <button
+          onClick={handleAddToCart}
+          className="absolute bottom-1 right-1 "
+        >
+          {isLoadingAddToCart ? (
+            <i className="fa-solid fa-spinner loading"></i>
+          ) : (
+            <i className="fa-solid fa-cart-shopping"></i>
+          )}
         </button>
       </div>
 
@@ -47,7 +69,7 @@ function CardProduct({
           {denomination}
         </span>
       </div>
-    </Link>
+    </div>
   );
 }
 

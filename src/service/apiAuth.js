@@ -1,17 +1,12 @@
-export const login = async (username, password) => {
+export const login = async (user) => {
   const response = await fetch(
-    "https://cors-anywhere.herokuapp.com/https://dummyjson.com/auth/login",
+    "https://thingproxy.freeboard.io/fetch/https://dummyjson.com/auth/login",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        password,
-        expiresInMins: 30,
-      }),
-      credentials: "include",
+      body: JSON.stringify(user),
     }
   );
 

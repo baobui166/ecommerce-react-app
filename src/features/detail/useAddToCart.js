@@ -6,7 +6,7 @@ export const useAddToCart = () => {
   const { mutate, isLoading } = useMutation({
     mutationFn: addToCart,
     onSuccess: () => {
-      toast.success("New item successfully added");
+      toast.success("Product added to cart successfully!");
     },
     onError: (err) => toast.error(err.message),
   });

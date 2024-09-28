@@ -2,24 +2,21 @@ import { useState } from "react";
 import RegisterWithPhoneNumber from "./RegisterWithPhoneNumber";
 import RegisterWithEmail from "./RegisterWithEmail";
 import LoginForm from "./LoginForm";
-import useAuth from "../../context/contextAuth";
 import { useLogin } from "./useLogin";
 
 function LoginContainer() {
   const [login, setLogin] = useState("login");
   const [register, setRegister] = useState("numberphone");
-  const [userName, setUserName] = useState("emilys");
-  const [password, setPassword] = useState("emilyspass");
-  const { setUser } = useAuth();
+  const [userName, setUserName] = useState("emmaj");
+  const [password, setPassword] = useState("emmajpass");
 
-  const { login: loginApi, isLoadingLogin, data } = useLogin();
+  const { login: loginApi, isLoadingLogin } = useLogin();
 
   const handleSubmit = async (e) => {
     if (!userName || !password) return;
 
     e.preventDefault();
-    loginApi(userName.trim(), password.trim());
-    setUser(data);
+    loginApi({ username: userName.trim(), password: password.trim() });
   };
 
   return (

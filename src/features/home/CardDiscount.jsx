@@ -23,7 +23,7 @@ function CardDiscount({
         <p className="text-[16px] text-red-300 mt-1">
           Còn {quantityDiscount} mã, hết hạn trong {endDate} ngày
         </p>
-        <div className="w-full bg-red-100 h-[2px]">
+        <div className="w-full bg-red-100 h-[2px] ">
           <div className="w-[20%] h-full bg-red-500"></div>
         </div>
         <div className="text-sm flex items-center gap-10 mt-3 text-[16px]">

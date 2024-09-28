@@ -2,21 +2,23 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { login as loginApi } from "../../service/apiAuth";
 import toast from "react-hot-toast";
+import useAuth from "../../context/contextAuth";
 
 export const useLogin = () => {
   const navigate = useNavigate();
+  const { setUser } = useAuth();
 
   const {
     mutate: login,
     isLoading: isLoadingLogin,
-    data,
     error,
   } = useMutation({
-    mutationFn: (username, password) => loginApi(username, password),
+    mutationFn: loginApi,
     onSuccess: (data) => {
       if (data?.accessToken) {
         localStorage.setItem("accessToken", data.accessToken);
         toast.success("Login success");
+        setUser(data);
         navigate("/", { replace: true });
       } else {
         toast.error("Login failed: Invalid response");
@@ -30,5 +32,5 @@ export const useLogin = () => {
     },
   });
 
-  return { login, isLoadingLogin, data, error };
+  return { login, isLoadingLogin, error };
 };

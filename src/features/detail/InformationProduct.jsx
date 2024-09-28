@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAuth from "../../context/contextAuth";
 import { quantity as quantityData } from "../../data/selectOption";
 import Button from "../../ui/Button";
@@ -7,14 +7,8 @@ import { useAddToCart } from "./useAddToCart";
 import { useParams } from "react-router-dom";
 
 function InformationProduct({ name, price, imagesInformation, sold }) {
-  const {
-    denomination,
-    quantity,
-    setQuantity,
-    user,
-    productsCart,
-    setProductsCart,
-  } = useAuth();
+  const { denomination, user } = useAuth();
+  const [quantity, setQuantity] = useState(null);
   const [show, setShow] = useState(false);
   const { id } = useParams();
   const { mutate: addToCartFunc, isLoading: isLoadingAddToCart } =
@@ -24,25 +18,22 @@ function InformationProduct({ name, price, imagesInformation, sold }) {
     setShow((pre) => !pre);
   };
 
-  useEffect(() => {
-    console.log("so luong sản phẩm", quantity);
-  }, [quantity]);
+  console.log(user.id, id, quantity);
+  //let updatedCart = [...productsCart];
 
+  // let existingItem = updatedCart.find((item) => item.id === id);
+
+  // if (existingItem) {
+  //   existingItem.quantity += Number(quantity);
+  // } else {
+  //   updatedCart.push({ id: Number(id), quantity: Number(quantity) });
+  // }
+
+  // setProductsCart(updatedCart);
+
+  // console.log("mang sau khi update: ", productsCart);
   const handleAddToCart = () => {
-    let updatedCart = [...productsCart];
-
-    let existingItem = updatedCart.find((item) => item.id === id);
-
-    if (existingItem) {
-      existingItem.quantity += Number(quantity);
-    } else {
-      updatedCart.push({ id: Number(id), quantity: Number(quantity) });
-    }
-
-    setProductsCart(updatedCart);
-
-    console.log("mang sau khi update: ", productsCart);
-    addToCartFunc({ userId: Number(user.id), products: updatedCart });
+    addToCartFunc(Number(user.id), Number(id), Number(quantity));
   };
 
   return (

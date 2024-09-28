@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../context/contextAuth";
 import Discount from "../home/Discount";
 import ItemProduct from "./ItemProduct";
 import Payment from "./Payment";
@@ -5,7 +7,14 @@ import RecommendProduct from "./RecommendProduct";
 import { useCart } from "./useCart";
 
 function CartContainer() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  console.log(user.id);
   const { data, isLoading, error } = useCart();
+
+  if (!user.id) {
+    navigate("/login");
+  }
 
   console.log(data);
 

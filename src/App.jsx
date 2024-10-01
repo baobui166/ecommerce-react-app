@@ -13,6 +13,7 @@ import Cart from "./page/Cart";
 import About from "./page/About";
 import Contact from "./page/Contact";
 import Login from "./page/Login";
+import Checkout from "./page/Checkout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +40,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/sale" element={<Product />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>

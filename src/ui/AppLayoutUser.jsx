@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 

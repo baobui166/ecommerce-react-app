@@ -64,11 +64,13 @@ a.active::after:hover {
 }
 
 .showSearch {
-  animation: showsearch 1s ease-in;
+  animation: showsearch 0.2s ease-in;
 }
 
 .closeSearch {
-  animation: closesearch 3s ease-in;
+  opacity: 0;
+  visibility: hidden;
+  animation: closesearch 0.3s ease-in;
 }
 
 @keyframes showsearch {

@@ -31,6 +31,7 @@ const AuthProvider = ({ children }) => {
     }
   });
   const denomination = "$";
+  const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [quantity, setQuantity] = useState("");
   const [sortPrice, setSortPrice] = useState("");
@@ -75,6 +76,8 @@ const AuthProvider = ({ children }) => {
     setQuantity,
     productsCart,
     setProductsCart,
+    search,
+    setSearch,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

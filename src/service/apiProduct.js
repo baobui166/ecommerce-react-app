@@ -30,3 +30,17 @@ export const getProductDetail = async (id) => {
   const data = await res.json();
   return data;
 };
+
+export const searchProduct = async (query) => {
+  const response = await fetch(
+    `https://dummyjson.com/products/search?q=${query}`
+  );
+
+  if (!response.ok) {
+    throw new Error("Invalid fetch search product");
+  }
+
+  const data = await response.json();
+
+  return data;
+};

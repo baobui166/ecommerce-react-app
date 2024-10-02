@@ -1,20 +1,49 @@
 import { useEffect, useRef } from "react";
 import IconHeader from "./IconHeader";
-import { Link } from "react-router-dom";
-import { useClickOutSide } from "../utils/clickOutSide";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../context/contextAuth";
+import { useSearch } from "../features/search/useSearch";
 
 function Search({ showSearch, setShowSearch }) {
-  const searchRef = useClickOutSide();
+  const searchRef = useRef(null);
+  const navigate = useNavigate();
+  const { search, setSearch } = useAuth();
+  const { mutate } = useSearch();
+
+  const handleSearch = () => {
+    mutate(search);
+    navigate(`/search/${search}`);
+    setShowSearch(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setShowSearch(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div
-      ref={searchRef}
-      className={`absolute mt-[-15px] showSearch top-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between ${
-        showSearch ? "showSearch" : "closeSearch"
+      className={`absolute mt-[-15px] showSearch top-0 left-0 right-0 bg-white shadow-lg p-4  ${
+        showSearch ? "showSearch " : "closeSearch"
       }`}
     >
-      <div className="fixed top-0 bottom-0 right-0 left-0 opacity-5"></div>
-      <div className="flex w-full  items-center justify-between  top-0 right-0 left-0">
+      <div
+        className="fixed top-0 bottom-0 right-0 left-0 opacity-5 invisible z-[5] blur-sm
+      "
+      ></div>
+      <div
+        ref={searchRef}
+        className="flex w-full items-center z-10 justify-between top-0 right-0 left-0"
+      >
         <Link to="/">
           <img
             src="https://theme.hstatic.net/200000260587/1001225543/14/logo.png?v=294"
@@ -23,9 +52,17 @@ function Search({ showSearch, setShowSearch }) {
         </Link>
         <div className="w-[400px] flex items-center gap-2 border rounded-full px-4">
           <div className="flex-1">
-            <input type="text" className="border-none outline-none w-full" />
+            <input
+              type="text"
+              className="border-none outline-none w-full"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
-          <i className="fa-solid fa-magnifying-glass text-2xl"></i>
+          <i
+            className="fa-solid fa-magnifying-glass text-2xl cursor-pointer"
+            onClick={handleSearch}
+          ></i>
         </div>
         <IconHeader />
       </div>

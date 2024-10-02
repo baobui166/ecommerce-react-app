@@ -15,6 +15,7 @@ import Contact from "./page/Contact";
 import Login from "./page/Login";
 import Checkout from "./page/Checkout";
 import CustomerService from "./page/CustomerService";
+import Search from "./page/Search";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,6 +44,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/customerservice" element={<CustomerService />} />
+              <Route path="/search/:query" element={<Search />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>

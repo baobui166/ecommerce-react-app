@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import IconHeader from "./IconHeader";
 import Sidebar from "./Sidebar";
 
@@ -11,13 +12,13 @@ function Header({ handleShowSearch }) {
         <div className="cursor-pointer " onClick={handleShowSearch}>
           <i className="fa-solid fa-magnifying-glass mr-[152px]"></i>
         </div>
-        <div className="-ml-[50px] md:ml-0">
+        <Link to="/" className="-ml-[50px] md:ml-0">
           <img
             src="https://theme.hstatic.net/200000260587/1001225543/14/logo.png?v=294"
             alt="logo"
             className="w-[80%] md:w-full"
           />
-        </div>
+        </Link>
         <IconHeader />
       </div>
       <Sidebar />

@@ -5,7 +5,7 @@ const menu = [
   { name: "Trang chủ", to: "/" },
   { name: "Sale up to 80%", to: "/sale" },
   { name: "Sản phẩm", to: "/products" },
-  { name: "Chăm sóc khách hàng", to: "/" },
+  { name: "Chăm sóc khách hàng", to: "/customerservice" },
   { name: "Tuyển dụng", to: "/" },
   { name: "Liên hệ", to: "/contact" },
 ];

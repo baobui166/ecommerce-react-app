@@ -112,3 +112,16 @@ input[type="radio"] {
     transform: rotate(360deg);
   }
 }
+
+.show {
+  animation: showBox 1s ease-in;
+}
+
+@keyframes showBox {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

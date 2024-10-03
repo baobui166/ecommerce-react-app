@@ -4,8 +4,8 @@ function ImageProduct({ images }) {
   const [imgCurrent, setImgCurrent] = useState(0);
 
   return (
-    <div className="w-[70%] flex items-center gap-5">
-      <div className="flex flex-col gap-2 p-2">
+    <div className="lg:w-[70%] flex items-center gap-5">
+      <div className=" lg:flex hidden flex-col gap-2 p-2">
         {images.map((item, index) => (
           <div
             key={index}
@@ -24,7 +24,7 @@ function ImageProduct({ images }) {
       <div className="w-[5px] h-full bg-gray-500">
         <div className="w-full h-[30%] bg-black"></div>
       </div>
-      <div className="w-[723px] h-[723px] overflow-hidden">
+      <div className="lg:w-[723px] lg:h-[723px] overflow-hidden">
         <img src={images[imgCurrent]} alt="Product" className="object-cover" />
       </div>
     </div>

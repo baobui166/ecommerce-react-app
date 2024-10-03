@@ -37,8 +37,8 @@ function RatingForm() {
   return (
     <div className="border-t border-t-gray-400 w-[60%]">
       <h2 className="uppercase text-black font-bold my-4">Viết đánh giá</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-        <div className="flex items-center gap-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col  gap-5">
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
           <div className="border border-gray-400 p-2">
             <input
               type="text"
@@ -56,7 +56,7 @@ function RatingForm() {
             />
           </div>
         </div>
-        <div className="w-[59%] border border-gray-400 p-2">
+        <div className="md:w-[59%] border border-gray-400 p-2">
           <input
             type="number"
             placeholder="Số điện thoại"
@@ -73,15 +73,15 @@ function RatingForm() {
             {...register("text")}
           ></textarea>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="border border-gray-400 p-2">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-3 overflow-hidden">
+          <div className="border border-gray-400 p-2 truncate text-clip">
             <input type="file" className="outline-none border-none" />
           </div>
-          <div className="border border-gray-400 p-2">
+          <div className="border border-gray-400 p-2 overflow-hidden">
             <input
               type="text"
               placeholder="Link video nếu có"
-              className="outline-none border-none"
+              className="outline-none border-none "
             />
           </div>
         </div>

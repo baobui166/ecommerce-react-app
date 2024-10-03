@@ -18,26 +18,12 @@ function InformationProduct({ name, price, imagesInformation, sold }) {
     setShow((pre) => !pre);
   };
 
-  console.log(user.id, id, quantity);
-  //let updatedCart = [...productsCart];
-
-  // let existingItem = updatedCart.find((item) => item.id === id);
-
-  // if (existingItem) {
-  //   existingItem.quantity += Number(quantity);
-  // } else {
-  //   updatedCart.push({ id: Number(id), quantity: Number(quantity) });
-  // }
-
-  // setProductsCart(updatedCart);
-
-  // console.log("mang sau khi update: ", productsCart);
   const handleAddToCart = () => {
     addToCartFunc(Number(user.id), Number(id), Number(quantity));
   };
 
   return (
-    <div className="w-[30%]">
+    <div className="lg:w-[30%]">
       <div
         className={` flex flex-col gap-3 overflow-hidden ${
           show ? "max-h-full" : "max-h-[780px]"

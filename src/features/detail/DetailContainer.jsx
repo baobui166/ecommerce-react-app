@@ -25,7 +25,7 @@ function DetailContainer() {
 
   return (
     <div className="w-[85%] mx-auto flex flex-col gap-3 my-10">
-      <div className="flex items-start gap-5">
+      <div className="flex flex-col md:flex-row items-start gap-5">
         <ImageProduct images={product?.images || productData.images} />
         <InformationProduct
           name={product?.title}

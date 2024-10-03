@@ -16,7 +16,9 @@ function HomeContainer() {
   return (
     <div className="w-full">
       <Banner />
-      <Discount />
+      <div className="hidden md:block">
+        <Discount />
+      </div>
       <ShowProduct
         data={products?.products || product}
         loading={isLoadingProduct}

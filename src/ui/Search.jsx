@@ -42,9 +42,9 @@ function Search({ showSearch, setShowSearch }) {
       ></div>
       <div
         ref={searchRef}
-        className="flex w-full items-center z-10 justify-between top-0 right-0 left-0"
+        className="flex w-full items-center z-10 justify-center md:justify-between top-0 right-0 left-0"
       >
-        <Link to="/">
+        <Link to="/" className="hidden md:block">
           <img
             src="https://theme.hstatic.net/200000260587/1001225543/14/logo.png?v=294"
             alt="logo"
@@ -64,7 +64,9 @@ function Search({ showSearch, setShowSearch }) {
             onClick={handleSearch}
           ></i>
         </div>
-        <IconHeader />
+        <div className="hidden md:block">
+          <IconHeader />
+        </div>
       </div>
     </div>
   );
